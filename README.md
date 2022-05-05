@@ -1,7 +1,7 @@
 # fdal
 Database Abstraction Layer for Flutter
 
-###  Flutter Database Abstraction Layer
+###  Firebase Database Abstraction Layer for Flutter
 
 - Firestore and Realtime Database... These are 2 different database solutions provided by Google's Firebase. They are different, but they have some common properties:
 	- JSON based
