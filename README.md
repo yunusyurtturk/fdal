@@ -11,6 +11,8 @@ Database Abstraction Layer for Flutter
 
 So instead of directly using Firestore or Realtime Database's API, I made an abstraction layer for these 2 database solutions and provide common functionalities through it. Also make sure to read Warning! section!
 
+### Extensibility
+Other database solutions can be implemented. These 2 are the only ones that I'm dealing currently.
 
 
 ### Core classes
