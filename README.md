@@ -1,10 +1,9 @@
 # fdal
 Database Abstraction Layer for Flutter
 
-
 ###  Flutter Database Abstraction Layer
 
-- Firestore and Realtime Database. These are 2 different database solutions provided by Google's Firebase. They are different, but they have some common properties:
+- Firestore and Realtime Database... These are 2 different database solutions provided by Google's Firebase. They are different, but they have some common properties:
 	- JSON based
 	- Create, Read, Update, Delete Operations
 	- Subscription to changes
@@ -12,7 +11,11 @@ Database Abstraction Layer for Flutter
 
 So instead of directly using Firestore or Realtime Database's API, I made an abstraction layer for these 2 database solutions and provide common functionalities through it.
 
-###Correspondance Table
+### Warning!
+I build this library to solve my personal problems, later decided to share with public. Use with caution. It is not complete and  I dont have passion to make it a complete library. Also it may not be  a complete solution for your problems. Don't hesitate to make it complete for you ;). 
+I'm sure it'd give insights to many people.
+
+### Core classes
                     
 Class  | Description
 ------------- | ------------- 
@@ -23,6 +26,18 @@ DBSubscription   | Subscription interface
 DBDataSnapshot   | Snapshot interface  
 DBField   | Field/Entry interface  
 DBDataSnapshot   | Snapshot interface  
+
+### Description
+Instead of directly using Firestore or Realtime DB API, you should initialize corresponding database service classes (Firestore or Realtime DB) and provide Firebase app to their Init method.
+
+```dart
+DBService dBService = FirebaseFirestoreDBService(); // for Firestore
+//OR
+DBService dBService = FirebaseRealtimeDBService(); // for Realtime DB
+dBService.Init(Firebase.apps[0]);	// Provide Firebase App
+```
+From now on, you can use FDAL's set, get, update, query, subscription operations.
+
 
 
 ####Dart/Flutter code
@@ -73,4 +88,20 @@ Future<void> result = dbRef.update(json)	// Update data
 DBSubscription  subscription = dbRef.subscribe((event){
 	// Event come as Map<String, dynamic>
 });
+
+// Inserting into arrays
+
+/* 
+   In Firestore, FieldValue.arrayUnion() method is used to combine/insert to arrays. 
+   But in Realtime DB, you should do it manually (if not,  let me know!).
+   So this method gets a little more parameters to support manually updating array. 
+   (I don't want to mention Realtime DB has no concept of arrays :(
+*/
+List<dynamic> currentArray; // An existing array with values
+dbRef.update({
+   "array_name" : dbService.arrayCombine([entry], current: currentArray),
+   //"players" : dbService!.arrayCombine([{userID :username}])
+})
+
+
 ```
