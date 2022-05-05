@@ -9,11 +9,9 @@ Database Abstraction Layer for Flutter
 	- Subscription to changes
 	- Querying
 
-So instead of directly using Firestore or Realtime Database's API, I made an abstraction layer for these 2 database solutions and provide common functionalities through it.
+So instead of directly using Firestore or Realtime Database's API, I made an abstraction layer for these 2 database solutions and provide common functionalities through it. Also make sure to read Warning! section!
 
-### Warning!
-I build this library to solve my personal problems, later decided to share with public. Use with caution. It is not complete and  I dont have passion to make it a complete library. Also it may not be  a complete solution for your problems. Don't hesitate to make it complete for you ;). 
-I'm sure it'd give insights to many people.
+
 
 ### Core classes
                     
@@ -105,3 +103,8 @@ dbRef.update({
 
 
 ```
+
+### Warning!
+I build this library to solve my personal problems, later decided to share with public. I'm sure it'd give insights to many people. 
+Use with caution. It is not complete (for example it is missing many querying options) and  I dont have passion to make it a complete library. 
+It may not be  a complete solution for your problems. Don't hesitate to make it complete for you ;). 
