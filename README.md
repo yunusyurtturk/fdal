@@ -19,6 +19,8 @@ DBService dBService;
 dBService = FirebaseFirestoreDBService(); // Pick this for Firestore
 dBService = FirebaseRealtimeDBService(); // Pick this for Realtime DB
 dBService = YourCustomDBService(); // Pick this for your custom DB Service
+
+// DONT CHANGE ANYTHING ELSE, EVERYTHING SHOULD WORK (Hopefully)
 ```
 
 ### Extensibility
