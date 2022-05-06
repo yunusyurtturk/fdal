@@ -1,6 +1,8 @@
 # fdal
 Database Abstraction Layer for Flutter
 
+Make sure to read Warning! section!
+
 ###  Firebase Database Abstraction Layer for Flutter
 
 - Firestore and Realtime Database... These are 2 different database solutions provided by Google's Firebase. They are different, but they have some common properties:
@@ -9,7 +11,9 @@ Database Abstraction Layer for Flutter
 	- Subscription to changes
 	- Querying
 
-So instead of directly using Firestore or Realtime Database's API, I made an abstraction layer for these 2 database solutions and provide common functionalities through it. Make sure to read Warning! section!
+So instead of directly using Firestore or Realtime Database's API, I made an abstraction layer for these 2 database solutions and provide common functionalities through it. 
+
+
 
 ### Aim of Library
 Without changing any logic, switch database service with one line of code change.
@@ -18,9 +22,9 @@ Without changing any logic, switch database service with one line of code change
 DBService dBService; 
 dBService = FirebaseFirestoreDBService(); // Pick this for Firestore
 dBService = FirebaseRealtimeDBService(); // Pick this for Realtime DB
-dBService = YourCustomDBService(); // Pick this for your custom DB Service
+dBService = YourCustomDBService(); // Pick this for your custom DB Service to be implemented by you
 
-// DONT CHANGE ANYTHING ELSE, EVERYTHING SHOULD WORK (Hopefully)
+// DONT CHANGE ANY CODE, EVERYTHING SHOULD WORK (Hopefully)
 ```
 
 ### Extensibility
@@ -120,5 +124,5 @@ dbRef.update({
 
 ### Warning!
 I build this library to solve my personal problems, later decided to share with public. I'm sure it'd give insights to many people. 
-Use with caution. It is not complete (for example it is missing many querying options) and  I dont have passion to make it a complete library. 
+Use with caution. It might contain bugs. It is not complete (for example it is missing many querying options) and  I dont have passion to make it a complete library. 
 It may not be  a complete solution for your problems. Don't hesitate to make it complete for you ;). 
